@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoffeeShopMangement.Models;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace CoffeeShopMangement.Areas.Admin.Controllers
 {
@@ -13,6 +14,7 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
     public class AdminRolesController : Controller
     {
         private readonly CoffeeShopManagementContext _context;
+        public INotyfService _notyfService { get; }
 
         public AdminRolesController(CoffeeShopManagementContext context)
         {
@@ -60,6 +62,7 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
             {
                 _context.Add(role);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Tạo mới thành công");
                 return RedirectToAction(nameof(Index));
             }
             return View(role);
@@ -99,11 +102,13 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
                 {
                     _context.Update(role);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Cập nhật thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!RoleExists(role.RoleId))
                     {
+                        _notyfService.Success("Có lỗi xảy ra");
                         return NotFound();
                     }
                     else
@@ -142,6 +147,7 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
             var role = await _context.Roles.FindAsync(id);
             _context.Roles.Remove(role);
             await _context.SaveChangesAsync();
+            _notyfService.Success("Xóa quyền truy cập thành công");
             return RedirectToAction(nameof(Index));
         }
 

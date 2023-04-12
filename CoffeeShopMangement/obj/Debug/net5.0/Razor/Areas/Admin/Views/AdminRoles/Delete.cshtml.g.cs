@@ -27,7 +27,7 @@ using CoffeeShopMangement.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c1047e8b30b3532d7f14f47ab6bd731784889c2f", @"/Areas/Admin/Views/AdminRoles/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e1fbff6ed3fb2df6caccf6b3bc2e967120906a6a", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"64ae760fcd0058cd608b029413d961fdc1f5a6fc", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_AdminRoles_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<CoffeeShopMangement.Models.Role>
     #nullable disable
