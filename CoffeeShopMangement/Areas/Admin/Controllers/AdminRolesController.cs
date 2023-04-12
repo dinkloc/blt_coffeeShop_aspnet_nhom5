@@ -16,9 +16,10 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
         private readonly CoffeeShopManagementContext _context;
         public INotyfService _notyfService { get; }
 
-        public AdminRolesController(CoffeeShopManagementContext context)
+        public AdminRolesController(CoffeeShopManagementContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminRoles
@@ -102,13 +103,11 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
                 {
                     _context.Update(role);
                     await _context.SaveChangesAsync();
-                    _notyfService.Success("Cập nhật thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!RoleExists(role.RoleId))
                     {
-                        _notyfService.Success("Có lỗi xảy ra");
                         return NotFound();
                     }
                     else
@@ -147,7 +146,6 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
             var role = await _context.Roles.FindAsync(id);
             _context.Roles.Remove(role);
             await _context.SaveChangesAsync();
-            _notyfService.Success("Xóa quyền truy cập thành công");
             return RedirectToAction(nameof(Index));
         }
 

@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CoffeeShopMangement.Models;
 
 namespace CoffeeShopMangement.Controllers
 {
     public class HomeController : Controller
     {
+        CoffeeShopManagementContext db = new CoffeeShopManagementContext();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -20,7 +22,8 @@ namespace CoffeeShopMangement.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var lstProduct = db.Products.ToList();
+            return View(lstProduct);
         }
 
 
