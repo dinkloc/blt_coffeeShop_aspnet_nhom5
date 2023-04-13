@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoffeeShopMangement.Models;
 using PagedList.Core;
+using AspNetCoreHero.ToastNotification.Notyf;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using System.IO;
+using WebShop.Helpper;
 
 namespace CoffeeShopMangement.Areas.Admin.Controllers
 {
@@ -14,10 +18,11 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
     public class AdminCategoriesController : Controller
     {
         private readonly CoffeeShopManagementContext _context;
-
-        public AdminCategoriesController(CoffeeShopManagementContext context)
+        INotyfService _notyfService;
+        public AdminCategoriesController(CoffeeShopManagementContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminCategories
@@ -63,12 +68,22 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CatId,CatName,Description,ParentId,Levels,Ordering,Published,Thumb,Title,Alias,MetaDesc,MetaKey,Cover,SchemaMarkup")] Category category)
+        public async Task<IActionResult> Create([Bind("CatId,CatName,Description,ParentId,Levels,Ordering,Published,Thumb,Title,Alias,MetaDesc,MetaKey,Cover,SchemaMarkup")] Category category, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
+                //Xu ly Thumb
+                if (fThumb != null)
+                {
+                    string extension = Path.GetExtension(fThumb.FileName);
+                    string imageName = Utilities.SEOUrl(category.CatName) + extension;
+                    category.Thumb = await Utilities.UploadFile(fThumb, @"category", imageName.ToLower());
+                }
+                if (string.IsNullOrEmpty(category.Thumb)) category.Thumb = "default.jpg";
+                category.Alias = Utilities.SEOUrl(category.CatName);
                 _context.Add(category);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm mới thành công");
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
@@ -95,7 +110,7 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CatId,CatName,Description,ParentId,Levels,Ordering,Published,Thumb,Title,Alias,MetaDesc,MetaKey,Cover,SchemaMarkup")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CatId,CatName,Description,ParentId,Levels,Ordering,Published,Thumb,Title,Alias,MetaDesc,MetaKey,Cover,SchemaMarkup")] Category category, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != category.CatId)
             {
@@ -106,8 +121,16 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
             {
                 try
                 {
+                    if (fThumb != null)
+                    {
+                        string extension = Path.GetExtension(fThumb.FileName);
+                        string imageName = Utilities.SEOUrl(category.CatName) + extension;
+                        category.Thumb = await Utilities.UploadFile(fThumb, @"category", imageName.ToLower());
+                    }
+                    if (string.IsNullOrEmpty(category.Thumb)) category.Thumb = "default.jpg";
                     _context.Update(category);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Chỉnh sửa thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {

@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoffeeShopMangement.Models;
 using PagedList.Core;
+using System.IO;
+using WebShop.Helpper;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace CoffeeShopMangement.Areas.Admin.Controllers
 {
@@ -14,10 +17,12 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
     public class AdminTinDangsController : Controller
     {
         private readonly CoffeeShopManagementContext _context;
+        public INotyfService _notyfService { get; }
 
-        public AdminTinDangsController(CoffeeShopManagementContext context)
+        public AdminTinDangsController(CoffeeShopManagementContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminTinDangs
@@ -65,12 +70,25 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostId,Title,Scontents,Contents,Thumb,Published,Alias,CreatedDate,Author,AccountId,Tags,CatId,IsHot,IsNewfeed,MetaKey,MetaDesc,Views")] TinDang tinDang)
+        public async Task<IActionResult> Create([Bind("PostId,Title,Scontents,Contents,Thumb,Published,Alias,CreatedDate,Author,AccountId,Tags,CatId,IsHot,IsNewfeed,MetaKey,MetaDesc,Views")] TinDang tinDang, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
+                //Xu ly Thumb
+                if (fThumb != null)
+                {
+                    string extension = Path.GetExtension(fThumb.FileName);
+                    string imageName = Utilities.SEOUrl(tinDang.Title) + extension;
+                    tinDang.Thumb = await Utilities.UploadFile(fThumb, @"news", imageName.ToLower());
+                }
+                if (string.IsNullOrEmpty(tinDang.Thumb)) tinDang.Thumb = "default.jpg";
+                tinDang.Alias = Utilities.SEOUrl(tinDang.Title);
+                tinDang.CreatedDate = DateTime.Now;
+
+
                 _context.Add(tinDang);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm mới thành công");
                 return RedirectToAction(nameof(Index));
             }
             return View(tinDang);
@@ -97,7 +115,7 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Scontents,Contents,Thumb,Published,Alias,CreatedDate,Author,AccountId,Tags,CatId,IsHot,IsNewfeed,MetaKey,MetaDesc,Views")] TinDang tinDang)
+        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Scontents,Contents,Thumb,Published,Alias,CreatedDate,Author,AccountId,Tags,CatId,IsHot,IsNewfeed,MetaKey,MetaDesc,Views")] TinDang tinDang, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != tinDang.PostId)
             {
@@ -108,8 +126,19 @@ namespace CoffeeShopMangement.Areas.Admin.Controllers
             {
                 try
                 {
+                    //Xu ly Thumb
+                    if (fThumb != null)
+                    {
+                        string extension = Path.GetExtension(fThumb.FileName);
+                        string imageName = Utilities.SEOUrl(tinDang.Title) + extension;
+                        tinDang.Thumb = await Utilities.UploadFile(fThumb, @"news", imageName.ToLower());
+                    }
+                    if (string.IsNullOrEmpty(tinDang.Thumb)) tinDang.Thumb = "default.jpg";
+                    tinDang.Alias = Utilities.SEOUrl(tinDang.Title);
+
                     _context.Update(tinDang);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Chỉnh sửa thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
