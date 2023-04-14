@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using CoffeeShopMangement.ModelViews;
 
 #nullable disable
 
@@ -367,5 +368,9 @@ namespace CoffeeShopMangement.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<CoffeeShopMangement.ModelViews.RegisterViewModel> RegisterViewModel { get; set; }
+
+        public DbSet<CoffeeShopMangement.ModelViews.LoginViewModel> LoginViewModel { get; set; }
     }
 }

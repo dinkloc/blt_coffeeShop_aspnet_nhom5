@@ -484,3 +484,9 @@ E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangem
 E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminTinDangs\Edit.cshtml.g.cs
 E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminTinDangs\Index.cshtml.g.cs
 E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\Search\ListProductsSearchPartial.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Blog\Details.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\DangkyTaiKhoan.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\Login.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\Dashboard.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\_ChangePasswordPartialView.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\_DonhangPartialView.cshtml.g.cs

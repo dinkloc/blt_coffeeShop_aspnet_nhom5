@@ -68,24 +68,26 @@
                                         <i class="pe-7s-users"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButton">
-                                        <li><a class="dropdown-item" href="my-account.html">Tài Khoản Của Tôi</a></li>
-                                        <li><a class="dropdown-item" href="login-register.html">Đăng Nhập | Đăng Kí</a></li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">Tài khoản của tôi</a></li>
+                                            <li><a class="dropdown-item" href="dang-xuat.html">Đăng xuất</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a class="dropdown-item" href="/dang-ky.html">Đăng ký tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="/dang-nhap.html">Đăng nhập</a></li>
+                                        }
                                     </ul>
                                 </li>
                                 <li class="d-none d-md-block">
-                                    <a href="wishlist.html">
+                                    <a href="#">
                                         <i class="pe-7s-like"></i>
                                     </a>
                                 </li>
                                 <li class="d-block d-lg-none">
-                                    <a href="#searchBar" class="search-btn toolbar-btn">
+                                    <a href="#" class="search-btn toolbar-btn">
                                         <i class="pe-7s-search"></i>
-                                    </a>
-                                </li>
-                                <li class="minicart-wrap me-3 me-lg-0">
-                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                        <i class="pe-7s-shopbag"></i>
-                                        <span class="quantity">3</span>
                                     </a>
                                 </li>
                                 <li class="mobile-menu_wrap d-block d-lg-none">
