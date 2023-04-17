@@ -83,8 +83,6 @@
                                                         </td>
                                                     </tr>
                                                 }
-
-
                                             </tbody>
                                         </table>
                                         <br />
@@ -147,7 +145,7 @@
                     $("#records_table").html(results);
                 },
                 error: function (xhr) {
-                    alert('error');
+                    alert(xhr.message);
                 }
             });
         });

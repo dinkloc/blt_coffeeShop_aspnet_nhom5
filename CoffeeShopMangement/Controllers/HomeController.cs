@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CoffeeShopMangement.Models;
+using CoffeeShopMangement.ModelViews;
 
 namespace CoffeeShopMangement.Controllers
 {
@@ -22,8 +23,14 @@ namespace CoffeeShopMangement.Controllers
 
         public IActionResult Index()
         {
-            var lstProduct = db.Products.ToList();
-            return View(lstProduct);
+            HomeViewVM model = new HomeViewVM();
+            var lsProduct = db.Products.ToList();
+            var lstintuc = db.TinDangs.ToList();
+            var lsCate = db.Categories.ToList();
+            model.Products = lsProduct;
+            model.TinTucs = lstintuc;
+            model.categories = lsCate;
+            return View(model);
         }
 
 

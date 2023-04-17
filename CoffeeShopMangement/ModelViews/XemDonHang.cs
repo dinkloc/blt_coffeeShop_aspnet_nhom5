@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CoffeeShopMangement.Models;
 
-namespace WebShop.ModelViews
+namespace CoffeeShopMangement.ModelViews
 {
     public class XemDonHang
     {

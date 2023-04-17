@@ -33,6 +33,7 @@ namespace CoffeeShopMangement
             var connectString = Configuration.GetConnectionString("WebShopConnectionString");
             services.AddDbContext<CoffeeShopManagementContext>(options => options.UseSqlServer(connectString));
 
+
             services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
             services.AddSession();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

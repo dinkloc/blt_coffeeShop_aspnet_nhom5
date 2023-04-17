@@ -490,3 +490,14 @@ E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangem
 E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\Dashboard.cshtml.g.cs
 E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\_ChangePasswordPartialView.cshtml.g.cs
 E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Accounts\_DonhangPartialView.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\ShoppingCart\Index.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Shared\Components\HeaderCart\Default.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Shared\Components\NumberCart\Default.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Checkout\Index.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\Checkout\Success.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminOrders\Create.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminOrders\Delete.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminOrders\Details.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminOrders\Edit.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminOrders\Index.cshtml.g.cs
+E:\Ki2Nam3\LapTrinhWeb\CoffeeShopManagement\CoffeeShopMangement\CoffeeShopMangement\obj\Debug\net5.0\Razor\Views\DonHang\Details.cshtml.g.cs
