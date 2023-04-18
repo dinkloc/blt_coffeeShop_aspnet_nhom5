@@ -10,9 +10,11 @@ using PagedList.Core;
 using System.IO;
 using CoffeeShopMangement.Helpper;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using CoffeeShopMangement.Models.Authentication;
 
 namespace CoffeeShopMangement.Areas.Admin.Controllers
 {
+    
     [Area("Admin")]
     public class AdminTinDangsController : Controller
     {

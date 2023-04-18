@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoffeeShopMangement.Models.Authentication;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoffeeShopMangement.Areas.Admin.Controllers
 {

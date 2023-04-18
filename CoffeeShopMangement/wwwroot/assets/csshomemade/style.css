@@ -1,3 +1,13 @@
 ﻿.header-custom {
     background-color: rebeccapurple;
 }
+
+* {
+    font-family: 'SF Pro Text', sans-serif;
+}
+
+.intro {
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+}
