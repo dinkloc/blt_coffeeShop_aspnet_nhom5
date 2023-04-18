@@ -51,15 +51,16 @@
                     <div class="tab-pane fade show active" id="all-items" role="tabpanel" aria-labelledby="all-items-tab">
                         <div class="product-item-wrap row">
                             @foreach(var item in Model.Products) {
+                                string url = $"/{item.Alias}-{item.ProductId}.html";
                                     <div class="col-xl-3 col-lg-4 col-sm-6">
                                     <div class="product-item" style="border-radius: 15px; margin: 0 0 15px 0; overflow: hidden;">
                                         <div class="product-img img-zoom-effect">
-                                            <a href="single-product.html">
+                                            <a href="@url">
                                                 <img class="img-full" src="../images/products/@item.Thumb" alt="Product Images">
                                             </a>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" asp-action="Details" asp-controller="Product" asp-route-id="@item.ProductId">@item.ProductName </a>
+                                            <a class="product-name" href="@url">@item.ProductName </a>
                                             <div class="price-box pb-1">
                                                 <span class="new-price">@item.Price.Value.ToString("#,##0") VNĐ</span>
                                             </div>

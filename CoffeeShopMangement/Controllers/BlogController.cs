@@ -22,7 +22,7 @@ namespace CoffeeShopMangement.Controllers
         public IActionResult Index(int? page)
         {
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 4;
+            var pageSize = 2;
             var lsTinDangs = _context.TinDangs
                 .AsNoTracking()
                 .OrderBy(x => x.PostId);
